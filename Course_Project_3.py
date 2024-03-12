@@ -1,10 +1,12 @@
 def GetEmpName():
     empname = input("Enter employee name: ")
     return empname
+
 def GetDatesWorked():
     fromdate = input("Enter Start Date (mm/dd/yyyy):")
     todate = input("Enter End Date (mm/dd/yyyy): ")
     return fromdate, todate
+
 def GetHoursWorked():
     hours = float(input('Enter amount of hours worked: '))
     return hours
@@ -63,17 +65,17 @@ def PrintTotals(EmpTotals):
 def WriteEmployeeInformation(employee):
     file = open("employeeinfo.txt", "a")
     
-    file.write('{}|{}|{}|{}|{}\n'.format(employee[0], employee[1], employee[2], employee[3], employee[4], employee[5]))
+    file.write('{}|{}|{}|{}|{}|{}\n'.format(employee[0], employee[1], employee[2], employee[3], employee[4], employee[5]))
     
 def GetFromDate():
     valid = False
     fromdate = ""
+    
     while not valid:
     
         fromdate = input("Enter FromDate (mm/dd/yyyy): ")
         
         if (len(fromdate.split('/')) != 3 and fromdate.upper() != 'ALL'):
-            
             print("Invalid Date Format: ")
         else:
             valid  = True
@@ -111,7 +113,6 @@ if __name__ == "main__":
         empname = GetEmpName()
         if (empname.upper() == "END"):
             break
-        
         fromdate, todate = GetDatesWorked()
         hours = GetHoursWorked()
         hourlyrate = GetHourlyRate()
@@ -127,7 +128,7 @@ if __name__ == "main__":
     fromdate = GetFromDate()
     
     EmpDetailList = ReadEmployeeInformation(fromdate)
-
+    
     print()
     printinfo(EmpDetailList)
     print()
